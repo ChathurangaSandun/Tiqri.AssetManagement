@@ -20,29 +20,32 @@ namespace Tiqri.AssetManagement.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
-        public async Task<ActionResult<Asset>> Get(int id)
+        [Route("")]
+        public async Task<ActionResult<Asset>> Get([FromQuery]string assetId)
         {
             var list = await this.assetDatabaseContext.Assets
-                .FirstOrDefaultAsync<Asset>(o => o.Id == id);
+                .FirstOrDefaultAsync<Asset>(o => o.AssetId == assetId);
             return Ok(list);
         }
 
-        [HttpGet]
-        [Route("")]
-        public async Task<ActionResult<Asset>> GetAll()
-        {
-            var list = await this.assetDatabaseContext.Assets.ToListAsync<Asset>();
-            return Ok(list);
-        }
+        //[HttpGet]
+        //[Route("")]
+        //public async Task<ActionResult<Asset>> GetAll()
+        //{
+        //    var list = await this.assetDatabaseContext.Assets.ToListAsync<Asset>();
+        //    return Ok(list);
+        //}
 
         [HttpPost]
         [Route("")]
         public async Task<ActionResult<Asset>> Save([FromBody] Asset asset)
         {
             var inserted = await this.assetDatabaseContext.Assets.AddAsync(asset);
-            return Ok(inserted);
+            await this.assetDatabaseContext.SaveChangesAsync();
+            return Ok(asset);
         }
+
+
 
     }
 }

@@ -8,20 +8,16 @@ namespace Tiqri.AssetManagement.Models
     public class Asset
     {
         public long Id { get; set; }
-        public string SerialNumber { get; set; }
+        public string AssetId { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
-        public string Status { get; set; }
+        public string Condition { get; set; }
+        public string Location { get; set; }
+        public string Project { get; set; }
+        public string AssetType { get; set; }
+        public string User { get; set; }
 
-        public long LocationId { get; set; }
-        public long ProjectId { get; set; }
-        public long AssetTypeId { get; set; }
-        public long UserId { get; set; }
-
-        public virtual Location Location { get; set; }
-        public virtual Project Project{ get; set; }
-        public virtual AssetType AssetType{ get; set; }
-        public virtual User User { get; set; }
+        
 
     }
 }

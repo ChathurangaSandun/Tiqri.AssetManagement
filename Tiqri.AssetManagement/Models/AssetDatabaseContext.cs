@@ -13,10 +13,10 @@ namespace Tiqri.AssetManagement.Models
         { }
 
         public DbSet<Asset> Assets { get; set; }
-        public DbSet<Location> Locations{ get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<Project> Projects { get; set; }
-        public DbSet<AssetType> AssetTypes { get; set; }
+        //public DbSet<Location> Locations{ get; set; }
+        //public DbSet<User> Users { get; set; }
+        //public DbSet<Project> Projects { get; set; }
+        //public DbSet<AssetType> AssetTypes { get; set; }
 
 
 
